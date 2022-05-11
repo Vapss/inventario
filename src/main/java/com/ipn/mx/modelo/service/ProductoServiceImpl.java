@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ipn.mx.modelo.dao.IProductoDAO;
-import com.ipn.mx.modelo.entidades.Categoria;
+
 import com.ipn.mx.modelo.entidades.Producto;
 @Service
 public class ProductoServiceImpl implements IProductoService{
@@ -29,11 +29,6 @@ public class ProductoServiceImpl implements IProductoService{
 	}
 
 
-	@Override
-	@Transactional(readOnly = true)
-	public Producto findById(Long id) {
-		return dao.findById(id).orElse(null);
-	}
 
 
 	@Override
@@ -58,23 +53,9 @@ public class ProductoServiceImpl implements IProductoService{
 
 
 	@Override
-	public Categoria findById(Long id) {
+	public Producto findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-
-	@Override
-	public Categoria save(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public void delete(long id) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

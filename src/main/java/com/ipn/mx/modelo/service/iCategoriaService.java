@@ -4,10 +4,10 @@ import java.util.List;
 
 import com.ipn.mx.modelo.entidades.Categoria;
 
-public interface iCategoriaService {
+public interface ICategoriaService {
 	public List<Categoria> findAll();
 	public Categoria findById(Long id);
 	public Categoria save(Categoria categoria);
-	public void delete(long id);
+	public void delete(Long id);
 	
 }

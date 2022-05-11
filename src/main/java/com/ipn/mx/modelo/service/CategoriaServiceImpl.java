@@ -24,11 +24,7 @@ public class CategoriaServiceImpl implements ICategoriaService{
 		return (List<Categoria>) dao.findAll();
 	}
 
-	@Override
-	@Transactional(readOnly = true)
-	public Categoria findById(Long id) {
-		return dao.findById(id).orElse(null);
-	}
+
 
 	@Override
 	public Categoria save(Categoria categoria) {
@@ -42,4 +38,11 @@ public class CategoriaServiceImpl implements ICategoriaService{
 		
 	}
 
+	@Override
+	public Categoria findById(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
+

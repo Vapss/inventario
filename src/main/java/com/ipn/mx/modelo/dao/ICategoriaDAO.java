@@ -10,4 +10,8 @@ public interface ICategoriaDAO {
 
 	Object findById(Long id);
 
+	void deleteById(Long id);
+
+	Categoria save(Categoria categoria);
+
 }
