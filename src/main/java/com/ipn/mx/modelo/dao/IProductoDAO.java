@@ -1,17 +1,11 @@
 package com.ipn.mx.modelo.dao;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 
 import com.ipn.mx.modelo.entidades.Producto;
 
-public interface IProductoDAO {
-
-	List<Producto> findAll();
-
-	Object findById(Long id);
-
-	Producto save(Producto producto);
-
-	void deleteById(Long id);
-
+public interface IProductoDAO  extends JpaRepository<Producto, Long>{
+	
+	
 }

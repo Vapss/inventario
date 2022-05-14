@@ -29,6 +29,11 @@ public class ProductoServiceImpl implements IProductoService{
 	}
 
 
+	@Override
+	@Transactional(readOnly = true)
+	public Producto findById(Long id) {
+		return dao.findById(id).orElse(null);
+	}
 
 
 	@Override
@@ -47,13 +52,6 @@ public class ProductoServiceImpl implements IProductoService{
 
 	@Override
 	public ByteArrayInputStream reporte(List<Producto> productos) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-	@Override
-	public Producto findById(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -2,16 +2,13 @@ package com.ipn.mx.modelo.dao;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
 import com.ipn.mx.modelo.entidades.Categoria;
 
-public interface ICategoriaDAO {
+public interface ICategoriaDAO  extends JpaRepository<Categoria, Long>{
 
-	List<Categoria> findAll();
-
-	Object findById(Long id);
-
-	void deleteById(Long id);
-
-	Categoria save(Categoria categoria);
-
+		@Query("from Categoria")
+		public List<Categoria> findAllCategoria();
 }
