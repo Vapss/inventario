@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+//a
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -31,6 +33,10 @@ public class Producto implements Serializable{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idProducto;
 	
+		
+	//#eliminar producto
+
+
 	public Long getIdProducto() {
 		return idProducto;
 	}
@@ -97,6 +103,8 @@ public class Producto implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "idCategoria")
 	private Categoria idCategoria;
+	
+	
 	
 	@PrePersist
 	public void prePersist() {

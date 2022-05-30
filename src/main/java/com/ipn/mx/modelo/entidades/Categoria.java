@@ -86,6 +86,3 @@ public class Categoria  implements Serializable{
 			cascade = CascadeType.ALL)
 	private List<Producto> losProductos;
 }
-
-
- 

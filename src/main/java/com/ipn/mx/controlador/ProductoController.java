@@ -119,6 +119,7 @@ public class ProductoController {
 	@PostMapping("/producto")
 	public ResponseEntity<?> create(@Valid @RequestBody Producto producto,
 	BindingResult resultado){
+		System.out.println(producto);
 		Producto productoNuevo = null;
 		Map<String,Object> response = new HashMap<>();
 		if(resultado.hasErrors()) {
@@ -126,23 +127,23 @@ public class ProductoController {
 					.map(err -> "Error" + err.getField() + err.getDefaultMessage())
 					.collect(Collectors.toList());
 					response.put("errores", errores);
+					response.put("datos_entrada" , producto);
 					return new ResponseEntity<Map<String,Object>>(response,HttpStatus.BAD_REQUEST);
-					
-					
 		}
 		try {
 			productoNuevo = service.save(producto);
+			response.put("mensaje", "insertado satisfacotriamente");
+			response.put("categoria", productoNuevo);
+			return new  ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
 		}catch(DataAccessException e ) {
 			response.put("mensaje", "error al insertar");
 			response.put("error", e.getMessage().concat(" ").concat(e.getMostSpecificCause().getMessage()));
+			System.out.println(producto);
 			return new  ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
 	
 		}
 		
-		productoNuevo = service.save(producto);
-		response.put("mensaje", "insertado satisfacotriamente");
-		response.put("categoria", productoNuevo);
-		return new  ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);
+		
 	}
 
 }
